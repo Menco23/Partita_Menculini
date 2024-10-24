@@ -18,7 +18,7 @@ Nel codice fornito non vengono utilizzati metodi specifici della classe `Object`
 
 ## Importanza della Classe Arbitro/Giudice
 
-La classe Arbitro/Giudice è cruciale per determinare il vincitore della partita. Poiché più thread potrebbero accedere contemporaneamente a questa risorsa condivisa, è necessario implementare meccanismi di sincronizzazione per evitare condizioni di gara e garantire la correttezza del risultato.
+La classe Arbitro/Giudice è cruciale per determinare il vincitore della partita. Poiché più thread potrebbero accedere contemporaneamente a questa risorsa condivisa.
 
 ## Commento dell'Esecuzione
 

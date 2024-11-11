@@ -3,25 +3,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package menculini_partita_pallavolo;
+import java.util.Random;
 
 /**
  *
  * @author Studente
  */
 public class Giocatore implements Runnable {
-      int numPassaggi;
       int ID;
+      Palla palla;
+      Arbitro arbitro;
+      Random random = new Random();
+      double probabilitaErrore = 0.9; //probabilità del 90% errore
       
-      public Giocatore(int ID){
-          this.numPassaggi=0;
+      
+      public Giocatore(int ID, Palla palla, Arbitro arbitro){
           this.ID=ID;
+          this.palla = palla;
+          this.arbitro = arbitro;
 }
+      //Override
       public void run(){
        while (true){
-           System.out.println("ID GIOCATORE: "+this.ID+" NUMERO PASSAGGI: "+this.numPassaggi);
-           this.numPassaggi++;
-           Thread.currentThread().yield();
-}  
-      }
+           if (random.nextDouble() < probabilitaErrore) {
+           System.out.println("Giocatore " + ID + "ha fatto cadere la palla!");
+           arbitro.dichiaraVincitore(ID == 1 ? 2 : 1);
+           break;
+           } else{
+           palla.passaPalla(ID);
+           arbitro.controllaGioco(palla);
+           Thread.yield();
+     }  
+   }
+ }
 }
     

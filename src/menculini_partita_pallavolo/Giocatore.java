@@ -14,7 +14,7 @@ public class Giocatore implements Runnable {
       Palla palla;
       Arbitro arbitro;
       Random random = new Random();
-      double probabilitaErrore = 0.9; //probabilità del 90% errore
+      double probabilitaErrore = 0.1; //probabilità del 90% errore
       
       
       public Giocatore(int ID, Palla palla, Arbitro arbitro){
